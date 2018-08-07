@@ -4,6 +4,8 @@
 
 ### ***Requirements***:
 
+> python > 3
+
 > Django==2.1
 
 > google-api-python-client==1.7.4
