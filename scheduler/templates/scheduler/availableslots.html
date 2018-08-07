@@ -14,7 +14,7 @@ th, td {
 }
 </style>
 <body>
-{% if user.user_email == 'vishalshirke17@gmail.com' %}
+{% if user.user_email == 'mockersage9@gmail.com' %}
 <div style="float:left">
     <h2 style="margin-left:40px">Hi, {{user.user_fname}}</h2>
 </div>
@@ -31,7 +31,7 @@ th, td {
     <th>schedule</th>
   </tr>
     {% for boo in booking %}
-    {% if not boo.is_scheduled and not boo.client_email == 'vishalshirke17@gmail.com' %}
+    {% if not boo.is_scheduled and not boo.client_email == 'mockersage9@gmail.com' %}
   <form method="post" action="{% url 'scheduler:create_event' %}">
     {% csrf_token %}
     <tr>
@@ -79,7 +79,7 @@ th, td {
 
     </form>
 </div>
-<iframe src="https://calendar.google.com/calendar/embed?src=vishalshirke17%40gmail.com&ctz=Asia%2FCalcutta" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+<iframe src="https://calendar.google.com/calendar/embed?src=mockersage9%40gmail.com&ctz=Asia%2FCalcutta" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 {% endif %}
 </body>
 </html>
