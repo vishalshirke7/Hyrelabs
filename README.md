@@ -4,7 +4,7 @@
 
 ### ***Requirements***:
 
-> python > 3
+> python 3 or greater
 
 > Django==2.1
 
