@@ -8,15 +8,17 @@ Django==2.1
 
 google-api-python-client==1.7.4
 
-google-auth==1.5.1
-
-google-auth-httplib2==0.0.3
-
-httplib2==0.11.3
-
 oauth2client==4.1.2
 
 Application Flow :
+
+***Install using pip***:
+
+```
+pip install django
+pip install google-api-python-client
+pip install oauth2client
+```
 
 1. Register as a user
 2. Book an appointment from available slots of Admin(Mr. X)
