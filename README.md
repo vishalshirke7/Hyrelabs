@@ -19,9 +19,8 @@ pip install oauth2client
 ```
 ### ***Application flow***:
 
-1. Register as a user
-2. Book an appointment from available slots of Admin(Mr. X)
-3. logout
-4. Register Admin(Mr.x) with the email as mockersage9@gmail.com
-5. Schedule an event from available invitations by accepting any one.
-6. Event is created in the admins calendar
+- Register as a user
+- If you are a client then book an appointment from available slots of Admin(Mr. X)
+- Register Admin(Mr.x) with the email as mockersage9@gmail.com
+- Schedule an appointment from available invitations of clients by accepting any one.
+- Event is created in the admins calendar
