@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if booking%}
+<h2>You have <i style="color:red">already</i> booked an appointment slot of <i style="color:green">{{booking.slot_time}}</i> to <i style="color:green">{{booking.slot_end_time}}</i> on date {{booking.slot_date}}</h2>
+{% else %}
+<h2>You have booked an appointment slot of <i style="color:green">{{bookings.slot_time}}</i> to <i style="color:green">{{bookings.slot_end_time}}</i> on date {{bookings.slot_date}}</h2>
+{% endif %}
+</body>
+</html>

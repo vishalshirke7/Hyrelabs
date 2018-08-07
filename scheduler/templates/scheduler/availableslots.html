@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 15px;
+}
+</style>
+<body>
+{% if user.user_email == 'vishalshirke17@gmail.com' %}
+<div style="float:left">
+    <h2 style="margin-left:40px">Hi, {{user.user_fname}}</h2>
+</div>
+<div style="float:right">
+    <h2 style="margin-right:40px" ><a href="{% url 'scheduler:logout' %}">Logout</a></h2>
+</div>
+<table style="width:100%">
+    <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Date</th>
+    <th>Start Time</th>
+    <th>End Time</th>
+    <th>schedule</th>
+  </tr>
+    {% for boo in booking %}
+    {% if not boo.is_scheduled and not boo.client_email == 'vishalshirke17@gmail.com' %}
+  <form method="post" action="{% url 'scheduler:create_event' %}">
+    {% csrf_token %}
+    <tr>
+      <td>{{boo.client_name}}</td>
+      <!--<td><input type="hidden" id="abc" name="abc" value="abc">{{boo.client_email}}</td>-->
+    <td>
+        <select name="drpdwndate">
+
+            <option>{{boo.client_email}}</option>
+        </select></td>
+        <td>{{boo.slot_date}}</td>
+    <td>{{boo.slot_time}}</td>
+      <td>{{boo.slot_end_time}}</td>
+      <td><input type="submit" value="submit"></td>
+  </tr>
+      </form>
+    {% endif %}
+    {% endfor %}
+</table>
+
+
+{% else %}
+<div style="float:left">
+    <h2 style="margin-left:40px">Hi, {{user.user_email}}</h2>
+</div>
+<div style="float:right">
+    <h2 style="margin-right:40px" ><a href="{% url 'scheduler:logout' %}">Logout</a></h2>
+    <h3 style="text-align:center;margin-top:60px;margin-right:50px">Schedule your time</h3>
+    <form method="post"  style="margin-top:30px" action="{% url 'scheduler:book_slot' %}">
+        {% csrf_token %}
+        <select name="drpdwndate">
+
+            <option>2018-08-22</option>
+            <option>2018-08-30</option>
+            <option>2018-09-09</option>
+        </select>
+        <select name="drpdwntime">
+
+            <option>1:00-2:30</option>
+            <option>2:00-2:30</option>
+            <option>11:00-12:30</option>
+        </select>
+
+    <input type="submit" value="submit">
+
+    </form>
+</div>
+<iframe src="https://calendar.google.com/calendar/embed?src=vishalshirke17%40gmail.com&ctz=Asia%2FCalcutta" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+{% endif %}
+</body>
+</html>
