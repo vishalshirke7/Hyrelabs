@@ -1,16 +1,14 @@
-# Meeting Scheduler
+# Meeting Scheduler Web Application
 
-#### This is a web application developed in django-python which uses google calendar api to schedule appointments and create events.
+### *This is a web application developed in django-python which uses google calendar api to schedule appointments and create events.*
 
 ***Requirements***:
 
-Django==2.1
+> Django==2.1
 
-google-api-python-client==1.7.4
+> google-api-python-client==1.7.4
 
-oauth2client==4.1.2
-
-Application Flow :
+> oauth2client==4.1.2
 
 ***Install using pip***:
 
