@@ -29,6 +29,7 @@ th, td {
     <th>Start Time</th>
     <th>End Time</th>
     <th>schedule</th>
+        <th>Reject</th>
   </tr>
     {% for boo in booking %}
     {% if not boo.is_scheduled and not boo.client_email == 'mockersage9@gmail.com' %}
@@ -45,7 +46,8 @@ th, td {
         <td>{{boo.slot_date}}</td>
     <td>{{boo.slot_time}}</td>
       <td>{{boo.slot_end_time}}</td>
-      <td><input type="submit" value="submit"></td>
+        <td><input type="submit" name="accept" align="middle" value="Schedule"> </td>
+        <td><input type="submit" name="reject" align="middle" value="Reject"> </td>
   </tr>
       </form>
     {% endif %}
@@ -56,7 +58,11 @@ th, td {
 {% else %}
 <div style="float:left">
     <h2 style="margin-left:40px">Hi, {{user.user_email}}</h2>
-</div>
+    <div style="text-align:center">
+        <h2 style="color:red">(Mr. X's calendar)</h2>
+            <iframe src="https://calendar.google.com/calendar/embed?src=mockersage9%40gmail.com&ctz=Asia%2FCalcutta" style="border: 0" width="900" height="600" frameborder="0" scrolling="no"></iframe>
+    </div>
+    </div>
 <div style="float:right">
     <h2 style="margin-right:40px" ><a href="{% url 'scheduler:logout' %}">Logout</a></h2>
     <h3 style="text-align:center;margin-top:60px;margin-right:50px">Schedule your time</h3>
@@ -79,7 +85,7 @@ th, td {
 
     </form>
 </div>
-<iframe src="https://calendar.google.com/calendar/embed?src=mockersage9%40gmail.com&ctz=Asia%2FCalcutta" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
 {% endif %}
 </body>
 </html>
