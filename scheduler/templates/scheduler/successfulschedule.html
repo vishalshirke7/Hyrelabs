@@ -5,7 +5,12 @@
     <title></title>
 </head>
 <body>
+{% if booking %}
 <h2>You have scheduled meeting with {{booking.client_name }}</h2>
 <h2><a href="{% url 'scheduler:index' %}">Go Back </a></h2>
+{% elif clientname %}
+<h2>You have cancelled meeting with {{clientname }}</h2>
+<h2><a href="{% url 'scheduler:index' %}">Go Back </a></h2>
+{% endif %}
 </body>
 </html>
