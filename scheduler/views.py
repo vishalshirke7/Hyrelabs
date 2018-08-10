@@ -134,15 +134,15 @@ def create_event(request):
         return HttpResponseRedirect(reverse('scheduler:index'))
 
 
-def cancel_appointment(request):
-    if request.method == 'POST':
-    # print(request.POST.get('abc@gmail.com'))
-        clientname = request.POST.get('drpdwndate')
-        booking = Bookings.objects.get(client_email=clientname)
-        booking.delete()
-        return render(request, 'scheduler/successfulschedule.html', {'clientname': clientname})
-    else:
-        return HttpResponseRedirect(reverse('scheduler:index'))
+# def cancel_appointment(request):
+#     if request.method == 'POST':
+#     # print(request.POST.get('abc@gmail.com'))
+#         clientname = request.POST.get('drpdwndate')
+#         booking = Bookings.objects.get(client_email=clientname)
+#         booking.delete()
+#         return render(request, 'scheduler/successfulschedule.html', {'clientname': clientname})
+#     else:
+#         return HttpResponseRedirect(reverse('scheduler:index'))
 
 
 def create_service():

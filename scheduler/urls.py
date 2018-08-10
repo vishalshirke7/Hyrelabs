@@ -11,5 +11,4 @@ urlpatterns = [
     path('bookslot/', views.book_slot, name='book_slot'),
     path('logout/', views.logout, name='logout'),
     path('createevent/', views.create_event, name='create_event'),
-    path('cancelappointment/', views.cancel_appointment, name='cancel_appointment')
 ]
