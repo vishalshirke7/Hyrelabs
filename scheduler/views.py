@@ -1,18 +1,17 @@
 import datetime
 from datetime import timedelta
-
-import pytz
 from django.http import HttpResponseRedirect
 from django.shortcuts import render,redirect
 from django.urls import reverse
+from django import forms
+
+import pytz
 from googleapiclient.discovery import build
 from httplib2 import Http
 from oauth2client import file, client, tools
 
 from .forms import SignupForm, LoginForm
 from .models import User, Bookings
-from django import forms
-# Create your views here.
 
 SCOPES = 'https://www.googleapis.com/auth/calendar'
 
