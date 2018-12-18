@@ -1,4 +1,5 @@
 from django import forms
+
 from .models import User
 
 
@@ -6,8 +7,10 @@ class SignupForm(forms.Form):
     fname = forms.CharField(label="First Name", max_length=50,required=True)
     lname = forms.CharField(label="Last Name", max_length=50,required=True)
     email = forms.EmailField(required=True)
-    password = forms.CharField(label="New Password", max_length=10, widget=forms.PasswordInput, required=True)
-    repassword = forms.CharField(label="Re-type Password", max_length=10, widget=forms.PasswordInput, required=True)
+    password = forms.CharField(label="New Password", max_length=10,
+                               widget=forms.PasswordInput, required=True)
+    repassword = forms.CharField(label="Re-type Password", max_length=10,
+                                 widget=forms.PasswordInput, required=True)
 
     class Meta:
         model = User
@@ -30,8 +33,11 @@ class SignupForm(forms.Form):
 
 class LoginForm(forms.Form):
 
-    username = forms.CharField(label="Email/Username", max_length=50,required=True)
-    password = forms.CharField(label="Password", max_length=10,widget=forms.PasswordInput,required=True)
+    username = forms.CharField(label="Email/Username", max_length=50, required=True)
+    password = forms.CharField(
+        label="Password", max_length=10,
+        widget=forms.PasswordInput, required=True
+        )
 
     class Meta:
         model = User

@@ -3,7 +3,6 @@ from datetime import timedelta
 from django.http import HttpResponseRedirect
 from django.shortcuts import render,redirect
 from django.urls import reverse
-from django import forms
 
 import pytz
 from googleapiclient.discovery import build
@@ -21,7 +20,8 @@ def index(request):
         userid = request.session['user_id']
         user = User.objects.get(pk=userid)
         booking = Bookings.objects.all()
-        return render(request, 'scheduler/availableslots.html', {'user': user, 'booking': booking})
+        return render(request, 'scheduler/availableslots.html',
+                      {'user': user, 'booking': booking})
     else:
         return render(request, 'scheduler/home.html')
 
@@ -132,18 +132,7 @@ def create_event(request):
     else:
         return HttpResponseRedirect(reverse('scheduler:index'))
 
-
-# def cancel_appointment(request):
-#     if request.method == 'POST':
-#     # print(request.POST.get('abc@gmail.com'))
-#         clientname = request.POST.get('drpdwndate')
-#         booking = Bookings.objects.get(client_email=clientname)
-#         booking.delete()
-#         return render(request, 'scheduler/successfulschedule.html', {'clientname': clientname})
-#     else:
-#         return HttpResponseRedirect(reverse('scheduler:index'))
-
-
+    
 def create_service():
     store = file.Storage('token.json')
     creds = store.get()
